@@ -1,0 +1,18 @@
+{
+    "DomsatSeq": 66892,
+    "DomsatTime": "1970/001 00:00:00.000",
+    "CarrierStart": "2023/002 23:59:50.302",
+    "CarrierStop": "2023/002 23:59:52.802",
+    "Baud": 300,
+    "GoodPhasePct": 100,
+    "FreqOffset": -0.5,
+    "SignalStrength": 36.2,
+    "PhaseNoise": 2.57,
+    "LocalRecvTime": "2023/003 00:03:28.410",
+    "BinaryMsg": "RERFNUY1N0UyMzAwMjIzNTk1MEczNi0wTk4xMjJXVVAwMDA2NGJCMU5AS1BAS1FAS1JAS1NAS1NAS1RAS1VAS1ZAV31AV31AV31AV31AV31AV31AV31AV31KIDIxMDkwODQ4ICA=",
+    "flags": "0x00081855",
+    "platformId": "DDE5F57E",
+    "agency": "USGS01",
+    "state": "SD",
+    "location": "A"
+}

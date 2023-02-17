@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "dcs": {
+      "username": "patrice.cappelaere@ibm.com",
+      "password": "a0Bison*2302&!"
+    },
+    "lzssc": {
+      "username": "pat",
+      "password": "a0Bison*2302&!"
+    }
+  }
+}
