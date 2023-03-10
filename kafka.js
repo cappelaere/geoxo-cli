@@ -10,9 +10,9 @@ const readline = require('readline')
 const PdtFileName = 'PDTS_COMPRESSED.txt'
 const fieldWidths = [6, 8, 1, 3, 1, 3, 6, 6, 4, 4, 1, 2, 1, 1, 31, 7, 8, 1, 14, 16, 1, 1, 6, 24, 20, 20, 30, 11, 1, 1]
 
-assert(process.env.KAFKA_BOOTSTRAP_SERVER)
-assert(process.env.KAFKA_API_KEY)
-assert(process.env.KAFKA_API_SECRET)
+assert(process.env.KAFKA_BOOTSTRAP_SERVER, "Undefined env KAFKA_BOOTSTRAP_SERVER")
+assert(process.env.KAFKA_API_KEY, "Undefined env KAFKA_API_KEY")
+assert(process.env.KAFKA_API_SECRET, "Undefined env KAFKA_API_SECRET")
 
 const default_topic = 'geocloud'
 

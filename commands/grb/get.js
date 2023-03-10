@@ -1,7 +1,7 @@
 // DCS Get
 //
 const axios = require("axios").default;
-const Axios = require('Axios')
+// const Axios = require('Axios')
 const fs = require('fs')
 const path = require('path')
 const zlib = require('zlib')
@@ -14,7 +14,7 @@ var FetchStream = require("fetch").FetchStream;
 const { GetTokens } = require('../../auth.js')
 
 const GEOXO_API_URL_AUTH = process.env.GEOXO_API_URL_AUTH
-assert(GEOXO_API_URL_AUTH)
+assert(GEOXO_API_URL_AUTH, "Undefined env GEOXO_API_URL_AUTH")
 
 let getDebug = false
 
@@ -42,7 +42,6 @@ const DownloadFile = async (data) => {
         });
 
         fetch.on('end', () => {
-
           buffer = Buffer.concat(bufs)
           fs.writeFileSync(fileName, buffer)
 

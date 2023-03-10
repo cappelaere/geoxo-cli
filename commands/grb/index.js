@@ -1,6 +1,7 @@
 const { Command } = require("commander")
 const { get } = require('./get.js')
 const { list } = require('./list.js')
+const { sql } = require('./sql.js')
 
 const grb = new Command("grb")
 
@@ -20,6 +21,11 @@ grb.command("get")
     .option("-c, --class <format>", "prefered storage class") // an optional flag, this will be in options.f
     .option("-d, --debug <level>", "debug level")
     .action(get)
+
+grb.command("sql")
+    .argument("<query...>", "the query")
+    .option("-d, --debug <level>", "debug level")
+    .action(sql)
 
 grb.command("unhandled-error").action(async () => {
     updateSpinnerText("Processing an unhandled failure ")

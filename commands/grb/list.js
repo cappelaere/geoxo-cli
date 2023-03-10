@@ -7,8 +7,7 @@ const moment = require('moment')
 let debug = false
 
 const GEOXO_API_URL_AUTH = process.env.GEOXO_API_URL_AUTH
-
-assert(GEOXO_API_URL_AUTH)
+assert(GEOXO_API_URL_AUTH, "Undefined env GEOXO_API_URL_AUTH")
 
 const ValidateTimeEntry = (entry) => {
   if (!moment(entry).isValid()) {
@@ -21,13 +20,18 @@ const list = async (options) => {
 
     logger.info(`Processing GRB List ${JSON.stringify(options)}`)
     const limit = options.limit || 100
-    const queryCommas = options.query.split(',')
+    let queryCommas
+    if (options.query) {
+      queryCommas = options.query.split(',')
+    }
 
     const query = {}
-    queryCommas.map((q) => {
-      const arr = q.split(':')
-      query[arr[0]] = arr[1]
-    })
+    if (queryCommas) {
+      queryCommas.map((q) => {
+        const arr = q.split(':')
+        query[arr[0]] = arr[1]
+      })
+    }
 
     let fields
     if (options.fields) {
@@ -72,7 +76,7 @@ const list = async (options) => {
       })
 
   } catch (err) {
-    console.error(err)
+    logger.error(`***Err ${err}`)
   }
 }
 module.exports.list = list
