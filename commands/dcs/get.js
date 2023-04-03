@@ -144,7 +144,7 @@ const get = async (id, myOptions) => {
         if (response.data.url) { // presigned
           await DownloadFile(response.data)
         } else {
-          logger.info(response.data)
+          logger.info(JSON.stringify(response.data, null, '  '))
         }
       })
       .catch((error) => {

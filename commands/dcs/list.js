@@ -57,7 +57,7 @@ const list = async (options) => {
         logger.info(`Response ${JSON.stringify(response.data, null, '  ')}`)
       })
       .catch(function (error) {
-        console.error(error)
+        // console.error(error)
 
         if (error.response && error.response.status) {
           logger.error(`Error: ${error.response.status}`)

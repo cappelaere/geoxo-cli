@@ -114,3 +114,22 @@ Tue Feb 14 2023 14:47:08 GMT-0500 (Eastern Standard Time) [[31merror[39m] : Er
 18:27:47 GMT-0500 (Eastern Standard Time) [[31merror[39m] : *** Authentication Error 
 15:09:11 GMT-0500 (Eastern Standard Time) [[31merror[39m] : Error: 455 
 15:09:11 GMT-0500 (Eastern Standard Time) [[31merror[39m] : Invalid Token. Please login! 
+11:09:14 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : *** Authentication Error 
+11:09:55 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : *** Authentication Error 
+11:10:40 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : 502 
+11:10:40 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Bad Gateway 
+11:11:29 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:11:29 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+11:13:25 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:13:25 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+11:18:08 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:18:08 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+11:18:52 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:18:52 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+11:19:21 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:19:21 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+11:24:16 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:24:16 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+11:28:04 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 
+11:28:04 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Internal server error 
+12:01:28 GMT-0400 (Eastern Daylight Time) [[31merror[39m] : Error: 502 - Bad Gateway 
