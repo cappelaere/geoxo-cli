@@ -36,7 +36,7 @@ const kafka = new Kafka(config)
 let producer, consumer, admin
 
 const topics = []
-const agencies = []
+const agencies = {}
 
 const InitProducer = async () => {
     // console.log('Initing Kafka...')
@@ -60,7 +60,7 @@ async function CreateTopic(topic) {
         {
             "topic": topic,
             "numPartitions": 1,
-            "replicationFactor": 1,
+            "replicationFactor": 3,
             "configEntries": [
                 {
                     "name": "cleanup.policy",
@@ -171,9 +171,12 @@ const ParsePdtFile = async (fileName) => {
             // const topic = `dcs.goes.${entry.agency}.${entry.dcpAddress}`
             // console.log(topic)
             // topics.push(topic)
-            if (!agencies.includes(entry.agency)) {
-                agencies.push(entry.agency)
+            if (!agencies[entry.agency]) {
+                agencies[entry.agency] = 1
+            } else {
+                agencies[entry.agency] = agencies[entry.agency] + 1
             }
+
             json += `\t\"${entry.dcpAddress}\": \"${entry.agency}\",\n`
         })
 
@@ -186,29 +189,32 @@ const ParsePdtFile = async (fileName) => {
         })
     })
 }
+const compareFn = (a, b) => {
+    return (a[1] - b[1])
+}
 
 const CreateAllTopicsFromPDT = async () => {
     await InitProducer()
     await ParsePdtFile(PdtFileName)
-    console.log(`Add topics: ${agencies.length}`)
-    for (let a of agencies.sort()) {
-        const t = `dcs.goes.${a}`
-        console.log(`Create ${t}`)
-        const result = await CreateTopic(t)
+
+    var orgs = Object.keys(agencies)
+
+    for (const t of orgs.sort()) {
+        const topic = `dcs.goes.${t}`
+        console.log(`Creating ${topic}...`)
+        const result = await CreateTopic(topic)
+        // console.log(`Delettng ${t}...`)
+        // const result = await DeleteTopic(t)
         console.log(result)
     }
-    const topics = agencies.sort().map((a) => { return `dcs.goes.${a}` })
-    fs.writeFileSync('topics.json', topics.join(',\n'))
+    console.log(`Num Topics: ${orgs.length}`)
 
-    // // topics.push('dcs.goes.FREPOL.FFF0073A')
-    // for (let t of topics) {
-    //   console.log(`Create ${t}`)
-    //   const result = await CreateTopic(t)
-    //   console.log(result)
-    // }
-    // const currentTopics = await ListTopics()
-    // console.log(`Current Topics ${currentTopics.length}`)
-    // console.log(currentTopics)
+    const arr = orgs.map((k) => { return [k, agencies[k]] })
+    const sortedArr = arr.sort(compareFn)
+    fs.writeFileSync('topics.json', JSON.stringify(arr, null, '\t'))
+    fs.writeFileSync('sortedTopics.json', JSON.stringify(sortedArr, null, '\t'))
+    fs.writeFileSync('topics.csv', arr.join('\n'))
+
     await Disconnect()
 }
 // CreateAllTopicsFromPDT()
